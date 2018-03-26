@@ -1,0 +1,116 @@
+<div class="filters--container">
+  <div (click)="collapseExpandElement('all')" class="filters filters--title container-fluid web">
+    <strong>Filtros</strong>
+  </div>
+  <div (click)="collapseExpandElement('all')" class="filters filters--title container-fluid mobile">
+    <strong>Filtrar</strong>
+    <i class="fa " [ngClass]="{'fa-sort-up':sectionAll, 'fa-sort-down':!sectionAll}"></i>
+  </div>
+  <div *ngIf="sectionAll">
+    <div class="filters filters--search">
+      <div class="filters--search-top">
+        <i class="search fa fa-search"></i>
+        <span>Nombre del hotel</span>
+        <i (click)="collapseExpandElement('search')" class="fa " [ngClass]="{'fa-sort-up':sectionSearch, 'fa-sort-down':!sectionSearch}"></i>
+      </div>
+      <div *ngIf="sectionSearch" class="filters--search-bottom container-fluid">
+        <input type="text"
+               placeholder="Ingrese el nombre del hotel"
+               class="hotel-name"
+               [(ngModel)]="hotelName"/>
+        <button (click)="applyCurrentFilters()">Aceptar</button>
+      </div>
+    </div>
+    <div class="filters filters--criterias">
+      <div class="filters--search-top">
+        <i class="search fa fa-star"></i>
+        <span>Estrellas</span>
+        <i (click)="collapseExpandElement('stars')" class="fa " [ngClass]="{'fa-sort-up':sectionStars, 'fa-sort-down':!sectionStars}"></i>
+      </div>
+      <div *ngIf="sectionStars" class="filters--search-bottom container-fluid">
+        <ul>
+          <li>
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="exampleCheck1"
+                     [(ngModel)]="allElements"
+                     (change)="applyFilters(-1, allElements)">
+              <label class="form-check-label" for="exampleCheck1">Todas las estrellas</label>
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="exampleCheck1"
+                     [(ngModel)]="fiveElements"
+                     (change)="applyFilters(5, fiveElements)">
+              <label class="form-check-label" for="exampleCheck1">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="exampleCheck1"
+                     [(ngModel)]="fourElements"
+                     (change)="applyFilters(4, fourElements)">
+              <label class="form-check-label" for="exampleCheck1">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="exampleCheck1"
+                     [(ngModel)]="threeElements"
+                     (change)="applyFilters(3, threeElements)">
+              <label class="form-check-label" for="exampleCheck1">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="exampleCheck1"
+                     [(ngModel)]="twoElements"
+                     (change)="applyFilters(2, twoElements)">
+              <label class="form-check-label" for="exampleCheck1">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </label>
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     id="exampleCheck1"
+                     [(ngModel)]="oneElements"
+                     (change)="applyFilters(1, oneElements)">
+              <label class="form-check-label" for="exampleCheck1">
+                <i class="fa fa-star"></i>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

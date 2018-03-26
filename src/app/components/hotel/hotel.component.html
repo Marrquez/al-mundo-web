@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="row ">
+    <div class="col-md-3">
+      <img src="../../../assets/images/hotels/{{hotelData.image}}" class="w-100" />
+    </div>
+    <div class="col-md-6 px-3">
+      <div class="hotel-name">
+        <span>{{hotelData.name}}</span>
+      </div>
+      <div class="hotel--stars">
+        <i class="fa fa-star" *ngFor="let s of stars(hotelData.stars).fill(1)" src="../../../assets/icons/amenities/restaurant.svg"></i>
+      </div>
+      <div class="hotel--amenities">
+        <img *ngFor="let am of hotelData.amenities" src="../../../assets/icons/amenities/{{am}}.svg" />
+      </div>
+    </div>
+    <div class="col-md-3 extra-info">
+      <small>Precio por noche por habitacion</small>
+      <h5 class="card-title">ARS <strong>{{hotelData.price}}</strong></h5>
+      <button (click)="showItem(hotelData.id)">Ver hotel</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="home--left-item col-sm-3">
+      <filters></filters>
+    </div>
+    <div class="home--right-item col-sm-9">
+      <ng-container >
+
+      </ng-container>
+
+      <hotel *ngFor="let h of hotel.temporalHotels" [hotelData]="h" ></hotel>
+    </div>
+  </div>
+</div>

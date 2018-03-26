@@ -1,0 +1,157 @@
+:host {
+  .filters {
+    background: #fff;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px #ddd;
+  }
+
+  .filters--title {
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .filters--title.web {
+    display: block;
+  }
+
+  .filters--title.mobile {
+    display: none;
+  }
+
+  .filters--search, .filters--criterias {
+    padding: 0 0 10px 0;
+    margin-top: 3px;
+
+    .filters--search-top {
+      color: #0061AB;
+      height: 35px;
+      line-height: 35px;
+      padding: 0 30px;
+      position: relative;
+
+      span {
+        font-size: 13px;
+        font-weight:bold;
+      }
+    }
+
+    .filters--search-bottom {
+      input.hotel-name {
+        border: 1px solid #C9C9C9;
+        border-radius: 2px;
+        font-size: 12px;
+        height: 30px;
+        padding: 0 8px;
+        width: 68%;
+      }
+
+      button {
+        background: #134284;
+        border-radius: 2px;
+        border: 0.5px solid #000;
+        color: #fff;
+        font-size: 14px;
+        height: 30px;
+        width: 30%;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+
+        .form-check {
+          font-size: 11px;
+          height: 30px;
+          line-height: 30px;
+          font-weight: bold;
+
+          .form-check-input {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .search, .fa-sort-up, .fa-sort-down {
+      bottom: 0;
+      height: 15px;
+      line-height: 15px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 30px;
+    }
+
+    .search {
+      font-size: 13px;
+    }
+
+    .fa-sort-up, .fa-sort-down {
+      font-size: 18px;
+      height: 22px;
+      line-height: 30px;
+      left: auto;
+      right: 0;
+    }
+
+    .fa-sort-down {
+      line-height: 15px;
+    }
+  }
+
+  .filters--criterias {
+    margin-top: 3px;
+
+    input {
+      height: 30px;
+    }
+
+    ul .fa-star {
+      color: #FEBB00;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .filters--container {
+      padding: 35px 0 0 0;
+
+      .filters--title {
+        left: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top:0;
+      }
+    }
+
+    .filters--title.web {
+      display: none;
+    }
+
+    .filters--title.mobile {
+      display: block;
+
+      .fa {
+        position: relative;
+      }
+
+      .fa::before {
+        position: absolute;
+      }
+
+      .fa-sort-up, .fa-sort-down {
+        font-size: 20px;
+        height: 15px;
+        line-height: 30px;
+        left: auto;
+        right: 0;
+      }
+
+      .fa-sort-down {
+        line-height: 15px;
+      }
+    }
+  }
+}
