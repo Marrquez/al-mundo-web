@@ -19,7 +19,8 @@ require("rxjs/add/operator/catch");
 var HotelService = /** @class */ (function () {
     function HotelService(http) {
         this.http = http;
-        this.baseUrl = 'http://localhost:8080';
+        //private baseUrl:string = 'http://localhost:4500';
+        this.baseUrl = 'http://ec2-34-211-160-79.us-west-2.compute.amazonaws.com:4500';
         this.data = [];
     }
     ;
@@ -47,10 +48,16 @@ var HotelService = /** @class */ (function () {
     /**
      * get hotels by name
      * */
-    HotelService.prototype.getHotels = function (name) {
+    HotelService.prototype.getHotels = function (name, one, two, three, four, five, all) {
         var url = this.baseUrl + '/get-hotels';
         var params = new http_1.URLSearchParams();
         params.set('name', name);
+        params.set('one', one);
+        params.set('two', two);
+        params.set('three', three);
+        params.set('four', four);
+        params.set('five', five);
+        params.set('all', all);
         return this.http.get(url, { params: params })
             .toPromise()
             .then(this.extractData)

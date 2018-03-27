@@ -14,6 +14,7 @@
         <input type="text"
                placeholder="Ingrese el nombre del hotel"
                class="hotel-name"
+               (keydown)="keyDownFunction($event)"
                [(ngModel)]="hotelName"/>
         <button (click)="searchHotels()">Aceptar</button>
       </div>
@@ -30,20 +31,20 @@
             <div class="form-check">
               <input type="checkbox"
                      class="form-check-input"
-                     id="exampleCheck1"
+                     id="exampleCheck"
                      [(ngModel)]="allElements"
                      (change)="applyFilters(-1, allElements)">
-              <label class="form-check-label" for="exampleCheck1">Todas las estrellas</label>
+              <label class="form-check-label" for="exampleCheck">Todas las estrellas</label>
             </div>
           </li>
           <li>
             <div class="form-check">
               <input type="checkbox"
                      class="form-check-input"
-                     id="exampleCheck1"
+                     id="exCheck5"
                      [(ngModel)]="fiveElements"
                      (change)="applyFilters(5, fiveElements)">
-              <label class="form-check-label" for="exampleCheck1">
+              <label class="form-check-label" for="exCheck5">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -56,10 +57,10 @@
             <div class="form-check">
               <input type="checkbox"
                      class="form-check-input"
-                     id="exampleCheck1"
+                     id="exCheck4"
                      [(ngModel)]="fourElements"
                      (change)="applyFilters(4, fourElements)">
-              <label class="form-check-label" for="exampleCheck1">
+              <label class="form-check-label" for="exCheck4">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -71,10 +72,10 @@
             <div class="form-check">
               <input type="checkbox"
                      class="form-check-input"
-                     id="exampleCheck1"
+                     id="exCheck3"
                      [(ngModel)]="threeElements"
                      (change)="applyFilters(3, threeElements)">
-              <label class="form-check-label" for="exampleCheck1">
+              <label class="form-check-label" for="exCheck3">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -85,10 +86,10 @@
             <div class="form-check">
               <input type="checkbox"
                      class="form-check-input"
-                     id="exampleCheck1"
+                     id="exCheck2"
                      [(ngModel)]="twoElements"
                      (change)="applyFilters(2, twoElements)">
-              <label class="form-check-label" for="exampleCheck1">
+              <label class="form-check-label" for="exCheck2">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
               </label>
@@ -98,10 +99,10 @@
             <div class="form-check">
               <input type="checkbox"
                      class="form-check-input"
-                     id="exampleCheck1"
+                     id="exCheck1"
                      [(ngModel)]="oneElements"
                      (change)="applyFilters(1, oneElements)">
-              <label class="form-check-label" for="exampleCheck1">
+              <label class="form-check-label" for="exCheck1">
                 <i class="fa fa-star"></i>
               </label>
             </div>

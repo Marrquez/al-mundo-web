@@ -88,7 +88,22 @@ var FiltersComponent = /** @class */ (function () {
      * search by name
     * */
     FiltersComponent.prototype.searchHotels = function () {
-        this.applyCurrentFilters();
+        var self = this;
+        var one, two, three, four, five, all;
+        one = this.oneElements ? "1" : "0";
+        two = this.twoElements ? "2" : "0";
+        three = this.threeElements ? "3" : "0";
+        four = this.fourElements ? "4" : "0";
+        five = this.fiveElements ? "5" : "0";
+        all = this.allElements ? "1" : "0";
+        this.hotel.getHotels(this.hotelName.toLowerCase(), one, two, three, four, five, all).then(function (data) {
+            self.hotel.data = data.hotels;
+        });
+    };
+    FiltersComponent.prototype.keyDownFunction = function (event) {
+        if (event.keyCode == 13) {
+            this.searchHotels();
+        }
     };
     FiltersComponent = __decorate([
         core_1.Component({

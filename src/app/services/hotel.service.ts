@@ -13,7 +13,8 @@ import { HotelModel } from '../models/HotelModel'
 
 @Injectable()
 export class HotelService {
-  private baseUrl:string = 'http://localhost:8080';
+  //private baseUrl:string = 'http://localhost:4500';
+  private baseUrl:string = 'http://ec2-34-211-160-79.us-west-2.compute.amazonaws.com:4500';
   public data:Array<HotelModel> = [];
   public currentHotel:HotelModel;
 
@@ -46,11 +47,17 @@ export class HotelService {
   /**
    * get hotels by name
    * */
-  getHotels(name:string){
+  getHotels(name: string, one:string, two:string, three:string, four:string, five:string, all:string){
     let url = this.baseUrl + '/get-hotels';
     let params: URLSearchParams = new URLSearchParams();
 
     params.set('name', name);
+    params.set('one', one);
+    params.set('two', two);
+    params.set('three', three);
+    params.set('four', four);
+    params.set('five', five);
+    params.set('all', all);
 
     return this.http.get(url, { params: params })
       .toPromise()

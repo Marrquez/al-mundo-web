@@ -96,6 +96,24 @@ export class FiltersComponent {
    * search by name
   * */
   searchHotels(){
-    this.applyCurrentFilters();
+    var self = this;
+    var one,two,three,four,five, all;
+
+    one = this.oneElements?"1":"0";
+    two = this.twoElements?"2":"0";
+    three = this.threeElements?"3":"0";
+    four = this.fourElements?"4":"0";
+    five = this.fiveElements?"5":"0";
+    all = this.allElements?"1":"0";
+
+    this.hotel.getHotels(this.hotelName.toLowerCase(), one, two, three, four, five, all).then(function(data:any){
+      self.hotel.data = data.hotels;
+    });
+  }
+
+  keyDownFunction(event:any) {
+    if(event.keyCode == 13) {
+      this.searchHotels();
+    }
   }
 }
