@@ -1,9 +1,6 @@
 <div class="filters--container">
-  <div (click)="collapseExpandElement('all')" class="filters filters--title container-fluid web">
+  <div (click)="collapseExpandElement('all')" class="filters filters--title container-fluid">
     <strong>Filtros</strong>
-  </div>
-  <div (click)="collapseExpandElement('all')" class="filters filters--title container-fluid mobile">
-    <strong>Filtrar</strong>
     <i class="fa " [ngClass]="{'fa-sort-up':sectionAll, 'fa-sort-down':!sectionAll}"></i>
   </div>
   <div *ngIf="sectionAll">
@@ -18,7 +15,7 @@
                placeholder="Ingrese el nombre del hotel"
                class="hotel-name"
                [(ngModel)]="hotelName"/>
-        <button (click)="applyCurrentFilters()">Aceptar</button>
+        <button (click)="searchHotels()">Aceptar</button>
       </div>
     </div>
     <div class="filters filters--criterias">

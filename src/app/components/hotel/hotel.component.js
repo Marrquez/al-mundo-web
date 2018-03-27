@@ -5,20 +5,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
-        this.title = 'Home component 98765';
+/**
+ * Models
+ * */
+var HotelModel_1 = require("../../models/HotelModel");
+/**
+ * Services
+ * */
+var hotel_service_1 = require("../../services/hotel.service");
+var HotelComponent = /** @class */ (function () {
+    function HotelComponent(hotel) {
+        this.hotel = hotel;
+        this.stars = Array;
     }
-    HomeComponent = __decorate([
+    ;
+    HotelComponent.prototype.showItem = function (hotelData) {
+        console.log(hotelData);
+        this.hotel.currentHotel = hotelData;
+    };
+    ;
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", HotelModel_1.HotelModel)
+    ], HotelComponent.prototype, "hotelData", void 0);
+    HotelComponent = __decorate([
         core_1.Component({
-            selector: 'home',
+            selector: 'hotel',
             templateUrl: './hotel.component.html',
             styles: [require('./hotel.component.less')]
-        })
-    ], HomeComponent);
-    return HomeComponent;
+        }),
+        __metadata("design:paramtypes", [hotel_service_1.HotelService])
+    ], HotelComponent);
+    return HotelComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=hotel.component.js.js.map
+exports.HotelComponent = HotelComponent;
+//# sourceMappingURL=hotel.component.js.map

@@ -10,11 +10,9 @@ module.exports = {
     'vendor': './src/vendor.ts',
     'app': './src/main.ts'
   },
-
   resolve: {
     extensions: ['.ts', '.js']
   },
-
   module: {
     rules: [
       {
@@ -56,12 +54,10 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
     }),
-
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: 'body'
     }),
-
     new CopyWebpackPlugin([{
       from: 'src/assets', to: 'assets'
     }])

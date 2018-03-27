@@ -11,6 +11,5 @@ import { HotelService } from '../../services/hotel.service';
   styles: [require('./home.component.less')]
 })
 export class HomeComponent {
-  constructor(public hotel: HotelService) {
-  };
+  constructor(public hotel: HotelService) { };
 }

@@ -5,6 +5,11 @@ import { Component, Input } from '@angular/core';
  * */
 import { HotelModel } from '../../models/HotelModel'
 
+/**
+ * Services
+ * */
+import { HotelService } from '../../services/hotel.service';
+
 @Component({
   selector: 'hotel',
   templateUrl: './hotel.component.html',
@@ -14,9 +19,10 @@ export class HotelComponent {
   @Input() hotelData: HotelModel;
   stars = Array;
 
-  constructor(){ };
+  constructor(public hotel:HotelService){ };
 
-  showItem (id: string) {
-    console.log("show the item: " + id);
+  showItem (hotelData: HotelModel) {
+    console.log(hotelData);
+    this.hotel.currentHotel = hotelData;
   };
 }

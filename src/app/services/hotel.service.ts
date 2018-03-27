@@ -15,51 +15,44 @@ import { HotelModel } from '../models/HotelModel'
 export class HotelService {
   private baseUrl:string = 'http://localhost:8080';
   public data:Array<HotelModel> = [];
-  public temporalHotels:Array<HotelModel> = [];
+  public currentHotel:HotelModel;
 
   constructor(private http: Http) { };
 
-  getDomainUser(domain:string) {
-    let url = this.baseUrl + '/domainUser';
+  /**
+   * get hotels by stars service
+   * @params:
+   *  name: string
+   *  stars: number
+   * */
+  getHotelsByStars(name: string, one:string, two:string, three:string, four:string, five:string, all:string) {
+    let url = this.baseUrl + '/get-hotels-by-stars';
     let params: URLSearchParams = new URLSearchParams();
 
-    params.set('domain', domain);
+    params.set('name', name);
+    params.set('one', one);
+    params.set('two', two);
+    params.set('three', three);
+    params.set('four', four);
+    params.set('five', five);
+    params.set('all', all);
 
     return this.http.get(url, { params: params })
       .toPromise()
       .then(this.extractData)
       .then(response => response);
-  };
-
-  showAllElements(){
-    this.temporalHotels = this.data;
   }
 
-  filterHotels(one:boolean, two:boolean, three:boolean, four:boolean, five:boolean) {
-    this.temporalHotels = [];
-    this.temporalHotels = this.temporalHotels.concat(this.getHotelsByStars(one?1:-1));
-    this.temporalHotels = this.temporalHotels.concat(this.getHotelsByStars(two?2:-1));
-    this.temporalHotels = this.temporalHotels.concat(this.getHotelsByStars(three?3:-1));
-    this.temporalHotels = this.temporalHotels.concat(this.getHotelsByStars(four?4:-1));
-    this.temporalHotels = this.temporalHotels.concat(this.getHotelsByStars(five?5:-1));
-  }
-
-  getHotelsByStars(stars:number){
-    return this.data.filter(function(ele, index){
-      return ele.stars === stars;
-    });
-  }
-
-  searchByName(name:string){
-    this.temporalHotels = this.temporalHotels.filter(function(ele, index){
-      return ele.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
-    });
-  }
-
-  getHotels(){
+  /**
+   * get hotels by name
+   * */
+  getHotels(name:string){
     let url = this.baseUrl + '/get-hotels';
+    let params: URLSearchParams = new URLSearchParams();
 
-    return this.http.get(url)
+    params.set('name', name);
+
+    return this.http.get(url, { params: params })
       .toPromise()
       .then(this.extractData)
       .then(response => response);
