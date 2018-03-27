@@ -22,7 +22,6 @@ export class HotelComponent {
   constructor(public hotel:HotelService){ };
 
   showItem (hotelData: HotelModel) {
-    console.log(hotelData);
     this.hotel.currentHotel = hotelData;
   };
 }

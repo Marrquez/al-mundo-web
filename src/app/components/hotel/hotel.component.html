@@ -1,7 +1,7 @@
 <div class="card">
   <div class="row ">
     <div class="col-md-3">
-      <img src="../../../assets/images/hotels/{{hotelData.image}}" class="w-100" />
+      <img src="/assets/images/hotels/{{hotelData.image}}" class="w-100" />
     </div>
     <div class="col-md-6 px-3">
       <div class="hotel-name">
@@ -11,7 +11,7 @@
         <i class="fa fa-star" *ngFor="let s of stars(hotelData.stars).fill(1)" src="../../../assets/icons/amenities/restaurant.svg"></i>
       </div>
       <div class="hotel--amenities">
-        <img *ngFor="let am of hotelData.amenities" src="../../../assets/icons/amenities/{{am}}.svg" />
+        <img *ngFor="let am of hotelData.amenities" src="/assets/icons/amenities/{{am}}.svg" />
       </div>
     </div>
     <div class="col-md-3 extra-info">
@@ -35,7 +35,7 @@
       <div class="modal-body">
         <p>ARS {{hotel.currentHotel.price}}</p>
         <div class="img-container">
-          <img src="../../../assets/images/hotels/{{hotel.currentHotel.image}}"/>
+          <img src="/assets/images/hotels/{{hotel.currentHotel.image}}"/>
         </div>
       </div>
       <div class="modal-footer">

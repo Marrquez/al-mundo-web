@@ -25,7 +25,6 @@ var HotelComponent = /** @class */ (function () {
     }
     ;
     HotelComponent.prototype.showItem = function (hotelData) {
-        console.log(hotelData);
         this.hotel.currentHotel = hotelData;
     };
     ;
